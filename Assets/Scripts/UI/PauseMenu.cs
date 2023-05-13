@@ -17,6 +17,8 @@ public class PauseMenu : MonoBehaviour
 
         continueBtn.onClick.AddListener(ResumeGame);
         mainMenuBtn.onClick.AddListener(ReturnToMainMenu);
+
+        Debug.Log("Startedd!!!");
     }
 
     void Update()
@@ -26,9 +28,11 @@ public class PauseMenu : MonoBehaviour
             if (isPaused)
             {
                 ResumeGame();
+                Cursor.visible = false;
             } else
             {
                 PauseGame();
+                Cursor.visible = true;
             }
         }
     }
