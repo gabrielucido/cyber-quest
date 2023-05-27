@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -62,9 +63,23 @@ public class UnlockManifolds : MonoBehaviour
             }
         }
 
+        if (win)
+        {
+            
+            AbrirCenaNova();
+
+        }
+
         Invoke("RestartTheGame", 2f);
+        
     }
 
+    public void AbrirCenaNova()
+    {
+        // Carrega a cena com o nome da cena desejada
+        SceneManager.LoadScene("MainScene");
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     private void Update()
     {
         

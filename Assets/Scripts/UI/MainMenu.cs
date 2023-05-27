@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Game Started!");
         levelChanger.ChangeToLevel("MainScene");
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void QuitGame()

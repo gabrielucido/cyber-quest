@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Interaction : MonoBehaviour
 {
@@ -18,10 +20,19 @@ public class Interaction : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 GetComponent<Light>().enabled = !GetComponent<Light>().enabled;
+                AbrirCenaNova();
+
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
             }
         }
     }
 
+    public void AbrirCenaNova()
+    {
+        // Carrega a cena com o nome da cena desejada
+        SceneManager.LoadScene("NunbersMinigame");
+    }
     void OnMouseEnter()
     {
         mouseIn = true;

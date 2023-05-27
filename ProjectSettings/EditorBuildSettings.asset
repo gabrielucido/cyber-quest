@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Playground.unity
-    guid: 707acc8dffb72b144bb1ffbe1c965f3d
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: d7429feb2b97342629d5c9b13bce7af7
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: e9b1de1e2ac96406c8add94405cebeac
+  - enabled: 1
+    path: Assets/Scenes/NunbersMinigame.unity
+    guid: b317261f62dca2a44b661db907a705ce
+  - enabled: 0
+    path: Assets/Scenes/Playground.unity
+    guid: 707acc8dffb72b144bb1ffbe1c965f3d
+  - enabled: 0
+    path: Assets/Scenes/SimonSays.unity
+    guid: c4d026e6d7a48e0488ff9e4f1dac9586
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}
