@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,13 +11,17 @@ public class PauseMenu : MonoBehaviour
     public Button continueBtn;
     public Button mainMenuBtn;
     private LevelChanger levelChanger;
+    private GameObject player;
 
     void Start()
     {
         levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
+        player = GameObject.Find("PlayerCapsule");
 
-        continueBtn.onClick.AddListener(ResumeGame);
+        continueBtn.onClick.AddListener(OnResumeGame);
         mainMenuBtn.onClick.AddListener(ReturnToMainMenu);
+
+
     }
 
     void Update()
@@ -25,11 +30,20 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
             {
-                ResumeGame();
-            } else
-            {
-                PauseGame();
+                OnResumeGame();
             }
+            else
+            {
+                OnPauseGame();
+            }
+        }
+        if (isPaused)
+        {
+            PausedGame();
+        }
+        else
+        {
+            ResumedGame();
         }
     }
 
@@ -37,23 +51,33 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Returning to Main Menu....");
         isPaused = false;
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         levelChanger.ChangeToLevel("MainMenu");
     }
 
-    void PauseGame()
+    public void OnPauseGame()
     {
         isPaused = true;
-        Time.timeScale = 0;
         gameObject.transform.Find("Canvas").gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
 
-    void ResumeGame()
+    public void OnResumeGame()
     {
         isPaused = false;
-        Time.timeScale = 1;
         gameObject.transform.Find("Canvas").gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
+    public void ResumedGame()
+    {
+        //Cursor.lockState = CursorLockMode.Locked;
+    }
 
+    public void PausedGame()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
