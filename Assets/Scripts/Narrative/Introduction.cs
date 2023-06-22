@@ -26,7 +26,10 @@ public class Introduction : MonoBehaviour
 
         if (open)
         {
-            player.SetActive(false);
+            if (player)
+            {
+                player.SetActive(false);
+            }
             if (Input.GetMouseButtonDown(0))
             {
                 CompleteIntroduction();
@@ -44,7 +47,10 @@ public class Introduction : MonoBehaviour
     {
         open = false;
         completed = true;
-        player.SetActive(true);
+        if (player)
+        {
+            player.SetActive(true);
+        }
         canvas.SetActive(false);
     }
 }
